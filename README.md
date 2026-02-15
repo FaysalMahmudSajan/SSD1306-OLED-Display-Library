@@ -1,4 +1,4 @@
-# Faysal_SSD1306 (under upgrading)
+# Faysal_SSD1306 (under development)
 
 A lightweight MicroPython driver for **SSD1306 OLED displays** (128x32 and 128x64, I2C interface).  
 Author: **Faysal Mahmud**  
