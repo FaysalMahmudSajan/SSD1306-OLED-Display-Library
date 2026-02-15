@@ -1,23 +1,54 @@
-# OLED-Display-Library 128x64
+# Faysal_SSD1306
 
-# Faysal_SSD1306 MicroPython Library
+A lightweight MicroPython driver for **SSD1306 OLED displays** (128x32 and 128x64, I2C interface).  
+Author: **Faysal Mahmud**  
+GitHub: [Faysal3010](https://github.com/Faysal3010)
 
-This library for microPython 128x64 oled Display.
-To fulfill the python community group
+---
 
-## Usage:
-1. Download `Faysal_SSD1306.py` from this repo.
-2. Upload the file to your ESP32 using Thonny or ampy.
-3. Import in your code:
+## ✨ Features
+- Compatible with **SSD1306 OLED 128x32 and 128x64** modules
+- Supports **I2C communication**
+- Core display functions:
+  - `fill(color)` → Fill entire screen with black/white
+  - `pixel(x, y, color)` → Draw individual pixels
+  - `text(string, x, y, color)` → Draw text
+  - `show()` → Update display with buffer contents
+- Extra features:
+  - `invert()` → Invert display colors
+  - `poweron()` / `poweroff()` → Control display power
+  - `contrast(value)` → Adjust brightness
+  - `scroll(start, stop)` → Enable horizontal scrolling
+  - `stop_scroll()` → Stop scrolling
+
+---
+
+## ⚙️ Requirements
+- MicroPython board (ESP8266, ESP32, Raspberry Pi Pico, etc.)
+- SSD1306 OLED display (I2C, address default `0x3C`)
+- `framebuf` module (built-in with MicroPython)
+
+---
+
+## 🚀 Usage Example
 
 ```python
-from Faysal_SSD1306 import Faysal_SSD1306
 from machine import Pin, I2C
+from Faysal_SSD1306 import Faysal_SSD1306
 
+# Initialize I2C (adjust pins for your board)
 i2c = I2C(0, scl=Pin(22), sda=Pin(21))
+
+# Initialize OLED (128x64)
 oled = Faysal_SSD1306(128, 64, i2c)
-```
 
+# Draw text
+oled.text("Hello Faysal!", 0, 0)
+oled.show()
 
+# Draw pixel
+oled.pixel(10, 10, 1)
+oled.show()
 
-Happy coding 
+# Invert display
+oled.invert(True)
